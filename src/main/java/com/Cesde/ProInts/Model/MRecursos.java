@@ -2,6 +2,7 @@ package com.Cesde.ProInts.Model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
@@ -9,86 +10,70 @@ import jakarta.persistence.Table;
 @Table (name="Recurso")
 public class MRecursos {
 
+   
+    public MRecursos(String id, String nombre, String categoria, Boolean estado, String ubicacion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.estado = estado;
+        this.ubicacion = ubicacion;
+    }
+
     @Id
     @Column(length = 15,nullable = false)
-    private String idrecurso;
+    private String id;
     @Column(length = 100,nullable = false)
-    private String nomrecurso;
+    private String nombre;
     @Column(length = 100,nullable = false)
-    private String tiporecurso;
-    @Column(length = 100,nullable = false)
-    private Boolean estado;   
+    private String categoria;
     @Column(nullable = false)
-    private LocalDate fechainicio;
-    @Column(nullable = false)
-    private LocalDate fechafin;
+    private Boolean estado; 
+     @Column(length = 100,nullable = false)
+    private String ubicacion;
 
-    // CONSTRUCTORES
-
-
-    public MRecursos() {
+ public MRecursos() {
     }
 
-    public MRecursos(Boolean estado, String idrecurso, String nomrecurso, String tiporecurso, LocalDate fechainicio, LocalDate fechafin) {
-        this.estado = estado;
-        this.idrecurso = idrecurso;
-        this.nomrecurso = nomrecurso;
-        this.tiporecurso = tiporecurso;
-        this.fechainicio = fechainicio;
-        this.fechafin = fechafin;
-    }
+ public String getId() {
+    return id;
+ }
 
-    // ENCASUPLAMIENTO GETTERS Y SETTERS
+ public void setId(String id) {
+    this.id = id;
+ }
 
-    public String getIdrecurso() {
-        return idrecurso;
-    }
+ public String getNombre() {
+    return nombre;
+ }
 
-    public void setIdrecurso(String idrecurso) {
-        this.idrecurso = idrecurso;
-    }
+ public void setNombre(String nombre) {
+    this.nombre = nombre;
+ }
 
-    public String getNomrecurso() {
-        return nomrecurso;
-    }
+ public String getCategoria() {
+    return categoria;
+ }
 
-    public void setNomrecurso(String nomrecurso) {
-        this.nomrecurso = nomrecurso;
-    }
+ public void setCategoria(String categoria) {
+    this.categoria = categoria;
+ }
 
-    public String getTiporecurso() {
-        return tiporecurso;
-    }
+ public Boolean getEstado() {
+    return estado;
+ }
 
-    public void setTiporecurso(String tiporecurso) {
-        this.tiporecurso = tiporecurso;
-    }
+ public void setEstado(Boolean estado) {
+    this.estado = estado;
+ }
 
-    public Boolean getEstado() {
-        return estado;
-    }
+ public String getUbicacion() {
+    return ubicacion;
+ }
 
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
-    }
+ public void setUbicacion(String ubicacion) {
+    this.ubicacion = ubicacion;
+ }
 
-    public LocalDate getFechainicio() {
-        return fechainicio;
-    }
-
-    public void setFechainicio(LocalDate fechainicio) {
-        this.fechainicio = fechainicio;
-    }
-
-    public LocalDate getFechafin() {
-        return fechafin;
-    }
-
-    public void setFechafin(LocalDate fechafin) {
-        this.fechafin = fechafin;
-    }
-
-
-   
+    
 
 }
