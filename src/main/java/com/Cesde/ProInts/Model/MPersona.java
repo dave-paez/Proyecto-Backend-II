@@ -1,12 +1,30 @@
 package com.Cesde.ProInts.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "persona")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class MPersona {
+
+    @Id
+    protected String id;
 
     protected String nombre;
     protected String email;
-    protected String id;
     protected String celular;
     protected String rol;
+
+    @ManyToMany(mappedBy = "personasPatrocinadas")
+    private List<MPatrocinador> patrocinadores = new ArrayList<>();
 
     // Constructor vacío
     public MPersona() {
@@ -60,6 +78,14 @@ public class MPersona {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    public List<MPatrocinador> getPatrocinadores() {
+        return patrocinadores;
+    }
+
+    public void setPatrocinadores(List<MPatrocinador> patrocinadores) {
+        this.patrocinadores = patrocinadores;
     }
 
 }
